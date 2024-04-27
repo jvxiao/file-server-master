@@ -1,0 +1,7 @@
+{
+  "name": "file-server-master",
+  "description": "A file manager, quick and secure",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.23"
+  }
+}
