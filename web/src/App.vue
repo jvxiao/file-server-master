@@ -1,7 +1,7 @@
 
 <template>
   <div class="app-main">
-    <div class="side-bar">
+    <div class="side-bar" v-if="comStore.showNavBar">
       <div class="side-item" v-for="nav in navList" :key="nav.path" :class="{'active': curNav === nav.path}">{{ nav.name }}</div>
     </div>
     <div class="main-content">
@@ -11,7 +11,8 @@
 </template>
 <script lang="ts" setup>
 import  { ref } from 'vue';
-
+import { useComStore } from '@/store';
+const comStore = useComStore();
 const navList = ref([
   {
     name: 'dashboard',
@@ -50,7 +51,8 @@ const curNav = ref('/manage');
     }
   }
   .main-content {
-    width: calc(100% - 20px);
+    // width: calc(100% - 20px);
+    width: 100%;
     height: 100%;
   }
 }

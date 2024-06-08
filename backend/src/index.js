@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   next();
 })
 app.post('/api/upload', fileupload, (req, res) => {
-  console.log(req.files);
+  // console.log(req.files);
   res.json({
     code: 0,
     data: 'ok'
