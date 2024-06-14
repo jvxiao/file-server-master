@@ -1,0 +1,72 @@
+{
+  "id": "4579500",
+  "name": "file-server",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12205300",
+      "name": "视频文件",
+      "font_class": "file_type_video",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12205303",
+      "name": "图片文件",
+      "font_class": "file_type_image",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "12205309",
+      "name": "pdf文件",
+      "font_class": "file_type_pdf",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "12205311",
+      "name": "压缩包文件",
+      "font_class": "file_type_compress_package",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "20535813",
+      "name": "文件类型-文本",
+      "font_class": "wenjianleixing-wenben",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "20535817",
+      "name": "文件类型-文档",
+      "font_class": "wenjianleixing-wendang",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "21721556",
+      "name": "文件类型-标准图-PDF文档",
+      "font_class": "wenjianleixing-biaozhuntu-PDFwendang",
+      "unicode": "e6a6",
+      "unicode_decimal": 59046
+    },
+    {
+      "icon_id": "22735864",
+      "name": "文件类型-文件夹",
+      "font_class": "File",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "22761833",
+      "name": "文件类型-未知文件",
+      "font_class": "weizhiwenjian",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}

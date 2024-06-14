@@ -555,6 +555,58 @@
       "size": 496261,
       "fid": "4ce9aff1-abd1-49ce-9043-97c86eed7b91",
       "uploadTime": 1717862412212
+    },
+    {
+      "id": "5c84",
+      "fieldname": "file",
+      "originalname": "新建 Microsoft Word 文档.docx",
+      "encoding": "7bit",
+      "mimetype": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "destination": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage",
+      "filename": "1717938047577.新建 Microsoft Word 文档.docx",
+      "path": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage\\1717938047577.新建 Microsoft Word 文档.docx",
+      "size": 0,
+      "fid": "0fece857-97b5-4184-80d1-ef5ee0d103b6",
+      "uploadTime": 1717938047583
+    },
+    {
+      "id": "41c9",
+      "fieldname": "file",
+      "originalname": "Screenshot_2024-06-09-02-05-38-195_com.tencent.weread.jpg",
+      "encoding": "7bit",
+      "mimetype": "image/jpeg",
+      "destination": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage",
+      "filename": "1717939368167.Screenshot_2024-06-09-02-05-38-195_com.tencent.weread.jpg",
+      "path": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage\\1717939368167.Screenshot_2024-06-09-02-05-38-195_com.tencent.weread.jpg",
+      "size": 332438,
+      "fid": "7638057d-c68e-4b72-bc61-f6450ef2fcef",
+      "uploadTime": 1717939368309
+    },
+    {
+      "id": "2fc0",
+      "fieldname": "file",
+      "originalname": "VID_20240609_212042.mp4",
+      "encoding": "7bit",
+      "mimetype": "video/mp4",
+      "destination": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage",
+      "filename": "1717939496033.VID_20240609_212042.mp4",
+      "path": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage\\1717939496033.VID_20240609_212042.mp4",
+      "size": 5774950,
+      "fid": "0f2ab051-7210-4ef1-bd5b-f20f86351499",
+      "uploadTime": 1717939497246
+    },
+    {
+      "id": "64c3",
+      "fieldname": "file",
+      "originalname": "python-3.6.1rc1.exe",
+      "encoding": "7bit",
+      "mimetype": "application/x-msdownload",
+      "destination": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage",
+      "filename": "1717939953936.python-3.6.1rc1.exe",
+      "path": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage\\1717939953936.python-3.6.1rc1.exe",
+      "size": 30435600,
+      "fid": "537430e0-8d38-4877-b82f-4eac13fc37f4",
+      "uploadTime": 1717939954515
     }
   ]
 }

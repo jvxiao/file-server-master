@@ -1,4 +1,5 @@
-import { onMounted, ref, computed } from 'vue';
+import { onMounted, ref, computed, watch } from 'vue';
+import { FILE_ICONS, FILE_TYPES, getApplicationType } from './fileTypeConst';
 import axios from 'axios';
 const BASE_URL = 'http://192.168.31.190:8001';
 // const BASE_URL = 'http://localhost:8001';
@@ -13,7 +14,20 @@ export const useFileManageService = (props, state) => {
     fetchFileList();
   })
 
+  watch(() => state.keyword, (newV, old) => {
+    if(old && !newV) {
+      fetchFileList();
+    }
+  })
   
+  const countWeeklyUpload = computed(() => {
+    const weekago = Date.now() - 7 * 1000 * 60 * 24;
+    const items = backup.value.filter(o => {
+      if(!o.uploadTime) return false;
+      return o.uploadTime > weekago;
+    })
+    return items.length || 0;
+  })
   
   const fetchFileList = async () => {
     const res = await axios.get(`${BASE_URL}/api/getFileList`);
@@ -32,6 +46,7 @@ export const useFileManageService = (props, state) => {
   const hdlFileChange = async () => {
     alert('确定上传？')
     console.log(fileuploader.value.files);
+    debugger
     const fileList = Array.from(fileuploader.value.files);
     const formData = new FormData();
     
@@ -75,13 +90,45 @@ export const useFileManageService = (props, state) => {
     dataList.value = result;
   }
 
+  const getFileType = (minetype:string | undefined) => {
+    if(!minetype) return FILE_TYPES.UNKNOWN;
+    const [cate, subcate] = minetype.split('/');
+    let result = '';
+    switch(cate) {
+      case FILE_TYPES.IMAGE:
+        result = FILE_TYPES.IMAGE;
+        break;
+      case FILE_TYPES.VIDEO:
+        result = FILE_TYPES.VIDEO;
+        break;
+      case FILE_TYPES.TEXT:
+        result = FILE_TYPES.TEXT;
+        break;
+      case FILE_TYPES.APPLICATION: 
+        result = getApplicationType(subcate);
+        break;
+      default:
+        result = FILE_TYPES.UNKNOWN;
+    }
+    
+    return result;
+  }
+
+  const getFileIcon = (minitype:string) => {
+    const type = getFileType(minitype);
+    return FILE_ICONS[type];
+  }
+
   return {
     fileuploader,
     dataList,
+    countWeeklyUpload,
     downloadFile,
     chooseFile,
     hdlFileChange,
-    searchByKeyword
+    searchByKeyword,
+    getFileType,
+    getFileIcon
   }
 }
 

@@ -16,6 +16,6 @@ export const friendlyMemorySize  = (bytes:Number) => {
 }
 
 export const friendlyTime = (timeStamp:Number|String, model:String = 'YYYY-MM-DD HH:mm:ss') => {
-  if(!timeStamp) return '--'
+  if(!timeStamp) return '--';
   return daysjs(timeStamp).format(model);
 }

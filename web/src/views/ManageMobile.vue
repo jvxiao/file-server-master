@@ -2,7 +2,7 @@
   <div class="manage-mobile">
     <div class="statistic-panel">
       <div class="card upload">
-        <span class="count ">90</span>
+        <span class="count ">{{ countWeeklyUpload }}</span>
         <span class="label">周上传量</span>
       </div>
       <div class="card download">
@@ -21,8 +21,13 @@
         </div> -->
         <div class="table-content">
           <div class="row" v-for="row in dataList" :key="row.id" @click="imgPreview(getFileURL(row))">
+            <div class="title">
+              <svg class="icon" aria-hidden="true">
+              <use :xlink:href="getFileIcon(row.mimetype)"></use>
+            </svg>
+            <div class="link">{{ row['originalname'] }}</div>
+            </div>
             <div class="cell" v-for="prop in dataProps" :key="prop.value">
-              <div class="link" v-if="prop.value === 'originalname'" >{{ row[prop.value] }}</div>
               <div class="meta">
                 <div class="meta-item" >size: {{ friendlyMemorySize(row['size']) }}</div>
                 <div class="meta-item" >upload time: {{ friendlyTime(row['uploadTime']) }}</div>
@@ -55,10 +60,12 @@ const state = reactive({
 const {
   fileuploader,
   dataList,
+  countWeeklyUpload,
   chooseFile,
   hdlFileChange,
   downloadFile,
-  searchByKeyword
+  searchByKeyword,
+  getFileIcon,
 } = useFileManageService(dataProps, state);
 
 const getFileURL = (file) => {
@@ -160,12 +167,22 @@ const getFileURL = (file) => {
         width: 100%;
         display: flex;
         flex-direction: column;
+        align-items: center;
         padding: 0 16px;
         line-height: 32px;
         box-shadow: -3px 4px 3px rgba(yellowgreen, .2) ;
         border-radius: 3px;
         margin-bottom: 4px;
-        padding-bottom: 5px;
+        padding:8px 5px;
+        .title {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+        }
+        .icon {
+          height: 30px;
+          width: 30px;
+        }
         &:hover {
           background-color: rgba(yellowgreen, .1);
         }
@@ -190,14 +207,16 @@ const getFileURL = (file) => {
       // text-decoration: underline;
       color: #555;
       cursor: pointer;
+      margin-left: 5px;
     }
     .meta {
       display: flex;
       flex-direction: row;
-      font-size: 12px;
+      font-size: 13px;
       height: 18px;
       line-height: 1;
       color: #999;
+      padding: 3px 0;
       .meta-item {
         margin-right: 10px;
       }

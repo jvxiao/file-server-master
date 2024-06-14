@@ -1,4 +1,10 @@
 @import './variables.scss';
+.icon {
+  width: 1em; height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -99,13 +105,13 @@ button:focus-visible {
   position: fixed;
   z-index: 3;
   .img-box {
-    width: 80%;
-    height: calc(100% - 80px);
+    width: 90%;
+    height: 80%;
     display: flex;
     justify-content: center;
   }
   img {
-    // transform: scale(0.9);
+    max-width: 100%;
     max-height: 100%;
     object-fit: contain;
   }
