@@ -43,7 +43,7 @@ const {
   chooseFile,
   hdlFileChange,
   downloadFile
-} = useFileManageService(dataProps);
+} = useFileManageService(dataProps, {});
 
 
 </script>

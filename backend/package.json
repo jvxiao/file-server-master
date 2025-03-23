@@ -1,9 +1,9 @@
 {
   "name": "file-manage-backend",
   "scripts": {
-    "serve": "nodemon ./src/index.js",
-    "db:start": "json-server ./src/db/data.json --port 3000 & nodemon ./src/index.js",
-    "start": "npm run db:start & npm run serve "
+    "serve:start": "nodemon ./src/index.js",
+    "db:start": "json-server ./src/db/data.json --port 3000 dblog.txt",
+    "start": "npm run db:start > dblog.txt & npm run serve:start "
   },
   "dependencies": {
     "axios": "^1.6.8",
