@@ -1,0 +1,19 @@
+
+> db:start
+> json-server ./src/db/data.json --port 3000 dblog.txt
+
+JSON Server started on PORT :3000
+Press CTRL-C to stop
+Watching ./src/db/data.json...
+
+(Ë¶áµ” áµ• áµ”Ë¶)
+
+Index:
+http://localhost:3000/
+
+Static files:
+Serving ./public directory if it exists
+
+Endpoints:
+http://localhost:3000/files
+ÖÕÖ¹Åú´¦Àí²Ù×÷Âð(Y/N)? 

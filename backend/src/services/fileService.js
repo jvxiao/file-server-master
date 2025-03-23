@@ -5,13 +5,13 @@ const path = require('path');
 const getFileList = async (req, res) => {
   const url = "http://localhost:3000/files";
   const resp = await axios.get(url);
-  console.log(resp.data);
+  // console.log(resp.data);
   res.json(resp.data);
 }
 
 const downloadFile = async (req, res) => {
   const url = "http://localhost:3000/files";
-  console.log(req.url, '123123')
+  // console.log(req.url, '123123')
   console.log(req.query)
   const { fid } = req.query;
   console.log(`${url}?fid=${fid}`);

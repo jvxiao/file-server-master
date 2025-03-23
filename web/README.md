@@ -1,9 +1,6 @@
-# Vue 3 + TypeScript + Vite
-
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
-
-- Use [vue-tsc](https://github.com/vuejs/language-tools/tree/master/packages/tsc) for performing the same type checking from the command line, or for generating d.ts files for SFCs.
+## 如何在局域网内访问
+- 打开防火墙
+  要在局域网内访问，首先必须关闭局域防火墙，或者使用更精细的防火墙策略，允许该服务监听外面的请求
+  
+- 开启全域监听
+  开发环境(dev)下, vite的host监听对象是所有地址 0.0.0.0， 同时页面请求地址将localhost:port 改成ip:port, ip为主机的真实地址。

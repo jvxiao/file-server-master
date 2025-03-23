@@ -14,6 +14,8 @@
           <div class="row" v-for="row in dataList" :key="row.id">
             <div class="cell" v-for="prop in dataProps" :key="prop.value">
               <div class="link" v-if="prop.value === 'originalname'" @click="downloadFile(row)">{{ row[prop.value] }}</div>
+              <div class="cell-content" v-else-if="prop.value === 'size'">{{ friendlyMemorySize(row[prop.value]) }}</div>
+              <div class="cell-content" v-else-if="prop.value === 'uploadTime'">{{ friendlyTime(row[prop.value]) }}</div>
               <div class="cell-content" v-else>{{ row[prop.value] }}</div>
             </div>
           </div>
@@ -23,68 +25,27 @@
   </div>
 </template>
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import axios from 'axios';
-const BASE_URL = 'http://192.168.31.190:8001';
-const fileuploader = ref(HTMLInputElement);
+import { ref } from 'vue';
+import { friendlyMemorySize, friendlyTime} from '@/utils/number';
+import { useFileManageService } from '../services/fileManageService';
 
-const dataList = ref([]);
+
 const dataProps = ref([
   {label: '文件名', value:'originalname'},
   {label: '类型', value:'mimetype',},
   {label: '文件大小', value: 'size'},
   {label: '上传时间', value: 'uploadTime'}
   
-
 ])
+const {
+  fileuploader,
+  dataList,
+  chooseFile,
+  hdlFileChange,
+  downloadFile
+} = useFileManageService(dataProps, {});
 
-onMounted(() => {
-  fetchFileList();
-})
 
-const fetchFileList = async () => {
-  const res = await axios.get(`${BASE_URL}/api/getFileList`);
-  if(res.data && res.data.length) {
-    dataList.value = res.data;
-    return;
-  }
-  dataList.value.splice(0);
-}
-
-const chooseFile = () => {
-  fileuploader.value && fileuploader.value.click();
-}
-const hdlFileChange = async () => {
-  console.log(fileuploader.value.files);
-
-  const fileList = Array.from(fileuploader.value.files);
-  const formData = new FormData();
-  
-  if(fileList.length) {
-    fileList.forEach(file => {
-      console.log(file);
-      formData.append('file', file);
-    })
-  }
-  let headers = {
-    'Content-Type': 'multipart/form-data'
-  }
-  const res = await axios.post('/api/upload', formData, {headers: headers});
-  debugger
-  if(res.data.code === 0) {
-    fetchFileList();
-  }
-  console.log(res);
-}
-
-const downloadFile = (file) => {
-  const link = document.createElement('a');
-  link.href = `${BASE_URL}/api/downloadFile?fid=${file.fid}`;
-  link.download = file.originalname;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-}
 </script>
 <style lang="scss" scoped>
 .manage-page {
