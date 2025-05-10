@@ -607,6 +607,19 @@
       "size": 30435600,
       "fid": "537430e0-8d38-4877-b82f-4eac13fc37f4",
       "uploadTime": 1717939954515
+    },
+    {
+      "id": "ca01",
+      "fieldname": "file",
+      "originalname": "5QoOjfuWZCTi185cddc3c83da5528eee7e989577460a.jpg",
+      "encoding": "7bit",
+      "mimetype": "image/jpeg",
+      "destination": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage",
+      "filename": "1746850067646.5QoOjfuWZCTi185cddc3c83da5528eee7e989577460a.jpg",
+      "path": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage\\1746850067646.5QoOjfuWZCTi185cddc3c83da5528eee7e989577460a.jpg",
+      "size": 826642,
+      "fid": "8d4dfc0c-61ef-44dd-808f-cd97e4509b30",
+      "uploadTime": 1746850067654
     }
   ]
 }

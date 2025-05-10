@@ -2,7 +2,7 @@
 <template>
   <div class="app-main">
     <div class="side-bar" v-if="comStore.showNavBar">
-      <div class="side-item" v-for="nav in navList" :key="nav.path" :class="{'active': curNav === nav.path}">{{ nav.name }}</div>
+      <div class="side-item" v-for="nav in navList" :key="nav.path" :class="{'active': curNav === nav.path}" @click="routeTo(nav.path)">{{ nav.name }}</div>
     </div>
     <div class="main-content">
       <router-view ></router-view>
@@ -12,11 +12,12 @@
 <script lang="ts" setup>
 import  { ref } from 'vue';
 import { useComStore } from '@/store';
+import router from '@/router';
 const comStore = useComStore();
 const navList = ref([
   {
-    name: 'dashboard',
-    path: '/'
+    name: '看板',
+    path: '/dashboard'
   }, {
     name: '文件管理',
     path: '/manage'
@@ -24,6 +25,15 @@ const navList = ref([
 ]);
 
 const curNav = ref('/manage');
+
+const routeTo = (routePath:string) => {
+  console.log(routePath)
+  curNav.value = routePath;
+  router.push({
+    path: routePath
+  }) 
+}
+
 
 </script>
 <style lang="scss" scoped>
@@ -44,6 +54,7 @@ const curNav = ref('/manage');
       line-height: 42px;
       width: 100%;
       padding: 0 16px;
+      cursor: pointer;
       &.active {
         background-color: $theme-color;
         color: #fff;
