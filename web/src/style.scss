@@ -26,6 +26,10 @@ html, body, #app {
   background-color: $background-color;
 }
 
+svg {
+  width: 1em;
+  height: 1em;
+}
 a {
   font-weight: 500;
   color: #646cff;

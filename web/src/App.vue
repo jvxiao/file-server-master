@@ -2,7 +2,10 @@
 <template>
   <div class="app-main">
     <div class="side-bar" v-if="comStore.showNavBar">
-      <div class="side-item" v-for="nav in navList" :key="nav.path" :class="{'active': curNav === nav.path}" @click="routeTo(nav.path)">{{ nav.name }}</div>
+      <div class="side-item" v-for="nav in navList" :key="nav.path" :class="{'active': curNav === nav.path}" @click="routeTo(nav.path)">
+        <component :is="nav.icon" />
+        <span>{{ nav.name }} </span>
+        </div>
     </div>
     <div class="main-content">
       <router-view ></router-view>
@@ -11,16 +14,24 @@
 </template>
 <script lang="ts" setup>
 import  { ref } from 'vue';
+import { TrendCharts, Delete, List, DeleteFilled } from '@element-plus/icons-vue'
 import { useComStore } from '@/store';
 import router from '@/router';
 const comStore = useComStore();
+const size = ref(14)
 const navList = ref([
   {
     name: '看板',
-    path: '/dashboard'
+    path: '/dashboard',
+    icon: TrendCharts
   }, {
     name: '文件管理',
-    path: '/manage'
+    path: '/manage',
+    icon: List
+  }, {
+    name: '回收站',
+    path: '/trashbin',
+    icon: DeleteFilled
   }
 ]);
 
@@ -45,7 +56,7 @@ const routeTo = (routePath:string) => {
   display: flex;
   color: #333;
   .side-bar {
-    width: 200px;
+    min-width: 200px;
     height: 100%;
     padding-top: 50px;
     background-color: #fff;
@@ -55,6 +66,12 @@ const routeTo = (routePath:string) => {
       width: 100%;
       padding: 0 16px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+      span {
+        margin-left: 5px;
+      }
       &.active {
         background-color: $theme-color;
         color: #fff;
