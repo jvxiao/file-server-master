@@ -7,7 +7,7 @@ import ManageAdaptor from '../views/ManageAdaptor.vue'
 const routes = [
   {
     path: '/',
-    redirect: '/manage'
+    redirect: '/dashboard'
   },
   {
     path: '/dashboard',

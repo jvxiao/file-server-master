@@ -35,7 +35,7 @@ const navList = ref([
   }
 ]);
 
-const curNav = ref('/manage');
+const curNav = ref('/dashboard');
 
 const routeTo = (routePath:string) => {
   console.log(routePath)
