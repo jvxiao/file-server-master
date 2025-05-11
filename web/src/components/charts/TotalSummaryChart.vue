@@ -18,7 +18,7 @@
 
 <script setup>
 import * as echarts from 'echarts';
-import { onMounted } from 'vue';
+import { onActivated, onMounted } from 'vue';
 
 let chartDom = null;
 let chart = null;
@@ -62,6 +62,9 @@ let data = [
 ]
 
 onMounted(() => {
+  chartDom = document.getElementById('total');
+  chart = echarts.init(chartDom);
+
   renderChart(data);
   window.onresize = () => {
     console.log('resize')
@@ -69,10 +72,13 @@ onMounted(() => {
   }
 })
 
+onActivated(() => {
+  renderChart(data);
+})
 const renderChart = (data) => {
+  chart && chart.dispose();
   option.series[0].data = data;
   chartDom = document.getElementById('total');
-  chart && chart.dispose();
   chart = echarts.init(chartDom);
   option && chart.setOption(option);
 }
