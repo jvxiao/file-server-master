@@ -1,21 +1,7 @@
 <template>
   <div class="dashboard-page">
     <div class="statistic-charts">
-        <div id="chart1">
-          <div class="wraper">
-            <div class="statistic">
-              <span class="title">Total: </span>
-              <span class="count">6884</span>
-            </div>
-            
-            <div class="range-bar">
-              <div class="week">week</div>
-              <div class="month">month</div>
-              <div class="year">year</div>
-            </div>
-          </div>
-          <div class="total-chart" id="total"></div>
-        </div>
+        <TotalSummaryChart />
         <div class="card-box">
           <div class="card upload">
             <span class="name">UPLOAD</span>
@@ -34,60 +20,8 @@
   </div>
 </template>
 <script setup>
-import * as echarts from 'echarts';
-import { onMounted } from 'vue';
+import TotalSummaryChart from '../components/charts/TotalSummaryChart.vue';
 
-onMounted(() => {
-  var chartDom = document.getElementById('total');
-var myChart = echarts.init(chartDom);
-var option;
-
-option = {
-  tooltip: {
-    trigger: 'item'
-  },
-  legend: {
-    top: '5%',
-    left: 'center'
-  },
-  series: [
-    {
-      name: 'Access From',
-      type: 'pie',
-      radius: ['40%', '70%'],
-      avoidLabelOverlap: false,
-      itemStyle: {
-        borderRadius: 10,
-        borderColor: '#fff',
-        borderWidth: 2
-      },
-      label: {
-        show: false,
-        position: 'center'
-      },
-      // emphasis: {
-      //   label: {
-      //     show: true,
-      //     fontSize: 40,
-      //     fontWeight: 'bold'
-      //   }
-      // },
-      labelLine: {
-        show: false
-      },
-      data: [
-        { value: 1048, name: 'Search Engine' },
-        { value: 735, name: 'Direct' },
-        { value: 580, name: 'Email' },
-        { value: 484, name: 'Union Ads' },
-        { value: 300, name: 'Video Ads' }
-      ]
-    }
-  ]
-};
-
-option && myChart.setOption(option);
-})
 
 
 </script>
@@ -106,42 +40,6 @@ option && myChart.setOption(option);
     width: 100%;
     display: flex;
     
-    #chart1 {
-      width: 45%;
-      min-width: 420px;
-      height: 380px;
-      background-color: #fff;
-      border-radius: 4px;
-      margin-right: 5px;
-      border: 1px solid #ccc;
-      .wraper {
-        // text-align: center;
-        display: flex;
-        justify-content: space-between;
-        padding: 8px;
-        .title, .count {
-          color: $theme-color;
-          font-size: 26px;
-          font-weight: 600;
-        }
-        .range-bar {
-          display: flex;
-          .week, .month, .year {
-            padding: 6px 12px;
-            border: 1px solid #ccc;
-            margin-right: -1px;
-            cursor: pointer;
-            color: #666;
-          }
-          .week {
-            border-radius: 4px 0 0 4px;
-          }
-          .year {
-            border-radius: 0 4px 4px 0;
-          }
-        }
-      }
-    }
     .card-box {
       flex: 1;
       display: flex;
@@ -199,8 +97,4 @@ option && myChart.setOption(option);
     }
 }
 
-#total {
-  width: 100%;
-  height: calc(100% - 55px);
-}
 </style>
