@@ -17,8 +17,14 @@
           <div class="total-chart" id="total"></div>
         </div>
         <div class="card-box">
-          <div class="card"></div>
-          <div class="card"></div>
+          <div class="card upload">
+            <span class="name">UPLOAD</span>
+            <span class="count">6677</span>
+          </div>
+          <div class="card download">
+            <span class="name">DOWNLOAD</span>
+            <span class="count">6677</span>
+          </div>
           <div class="card"></div>
           <div class="card"></div>
         </div>
@@ -144,9 +150,43 @@ option && myChart.setOption(option);
       .card {
         width: calc((100% - 16px) /2);
         height: 180px;
-        background-color: #1e3058;
+        background-color: #fff;
         margin-left: 8px;
         border-radius: 4px;
+        padding: 0;
+        // border: 1px solid #ee6666;
+        .count {
+          font-size: 70px;
+          display: block;
+          // color: #ee6666;
+          font-weight: 600;
+          padding: 15px;
+          text-align: center;
+        }
+        .name {
+          // width: 45%;
+          padding: 4px 20px;
+          font-size: 20px;
+          display: inline-block;
+          color: #fff;
+          // background: #ee6666;
+          border-radius: 0 0 30px 0;
+        }
+
+        &.upload {
+          color: #ee6666;
+          border: 1px solid #ee6666;
+          .name {
+            background-color: #ee6666;
+          }
+        }
+        &.download {
+          color: #73c0de;
+          border: 1px solid #73c0de;
+          .name {
+            background-color: #73c0de;
+          }
+        }
       }
     }
   }
