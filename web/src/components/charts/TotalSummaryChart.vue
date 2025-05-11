@@ -53,21 +53,26 @@ let option = {
   ]
 };
 ;
+let data = [
+  { value: 1048, name: 'Search Engine' },
+  { value: 735, name: 'Direct' },
+  { value: 580, name: 'Email' },
+  { value: 484, name: 'Union Ads' },
+  { value: 300, name: 'Video Ads' }
+]
 
 onMounted(() => {
-  let data = [
-    { value: 1048, name: 'Search Engine' },
-    { value: 735, name: 'Direct' },
-    { value: 580, name: 'Email' },
-    { value: 484, name: 'Union Ads' },
-    { value: 300, name: 'Video Ads' }
-  ]
   renderChart(data);
+  window.onresize = () => {
+    console.log('resize')
+    renderChart(data);
+  }
 })
 
 const renderChart = (data) => {
   option.series[0].data = data;
   chartDom = document.getElementById('total');
+  chart && chart.dispose();
   chart = echarts.init(chartDom);
   option && chart.setOption(option);
 }
