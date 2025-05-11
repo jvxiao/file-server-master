@@ -20,12 +20,9 @@
 import * as echarts from 'echarts';
 import { onMounted } from 'vue';
 
-onMounted(() => {
-var chartDom = document.getElementById('total');
-var myChart = echarts.init(chartDom);
-var option;
-
-option = {
+let chartDom = null;
+let chart = null;
+let option = {
   tooltip: {
     trigger: 'item'
   },
@@ -48,29 +45,32 @@ option = {
         show: false,
         position: 'center'
       },
-      // emphasis: {
-      //   label: {
-      //     show: true,
-      //     fontSize: 40,
-      //     fontWeight: 'bold'
-      //   }
-      // },
       labelLine: {
         show: false
       },
-      data: [
-        { value: 1048, name: 'Search Engine' },
-        { value: 735, name: 'Direct' },
-        { value: 580, name: 'Email' },
-        { value: 484, name: 'Union Ads' },
-        { value: 300, name: 'Video Ads' }
-      ]
+      data:[]
     }
   ]
 };
+;
 
-option && myChart.setOption(option);
+onMounted(() => {
+  let data = [
+    { value: 1048, name: 'Search Engine' },
+    { value: 735, name: 'Direct' },
+    { value: 580, name: 'Email' },
+    { value: 484, name: 'Union Ads' },
+    { value: 300, name: 'Video Ads' }
+  ]
+  renderChart(data);
 })
+
+const renderChart = (data) => {
+  option.series[0].data = data;
+  chartDom = document.getElementById('total');
+  chart = echarts.init(chartDom);
+  option && chart.setOption(option);
+}
 </script>
 
 <style lang="scss" scoped>
