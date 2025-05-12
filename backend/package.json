@@ -3,11 +3,12 @@
   "scripts": {
     "serve:start": "nodemon ./src/index.js",
     "db:start": "json-server ./src/db/data.json --port 3000 dblog.txt",
-    "start": "npm run db:start > dblog.txt & npm run serve:start "
+    "start": "concurrently \"npm run db:start\" \"npm run serve:start \""
   },
   "dependencies": {
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
+    "concurrently": "^9.1.2",
     "cors": "^2.8.5",
     "express": "^4.19.1",
     "json-server": "^1.0.0-alpha.23",
