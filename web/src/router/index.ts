@@ -1,10 +1,9 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import Home from '@/components/HelloWorld.vue';
 import Dashboard from '../views/Dashboard.vue';
-import Manage from '../views/Manage.vue';
 import ManageAdaptor from '../views/ManageAdaptor.vue'
 
-const routes = [
+const routes:RouteRecordRaw[] = [
   {
     path: '/',
     redirect: '/dashboard'

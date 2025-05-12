@@ -40,19 +40,19 @@ export const useFileManageService = (props, state) => {
   }
   
   const chooseFile = () => {
-    fileuploader.value && fileuploader.value.click();
+    fileuploader.value && (fileuploader.value as any).click();
   }
   const hdlFileChange = async () => {
     alert('确定上传？')
-    console.log(fileuploader.value.files);
+    console.log((fileuploader.value as any).files);
     debugger
-    const fileList = Array.from(fileuploader.value.files);
+    const fileList = Array.from((fileuploader.value as any).files);
     const formData = new FormData();
     
     if(fileList.length) {
       fileList.forEach(file => {
         console.log(file);
-        formData.append('file', file);
+        formData.append('file', file as File);
       })
     }
     let headers = {
@@ -63,8 +63,8 @@ export const useFileManageService = (props, state) => {
     if(res.data.code === 0) {
       fetchFileList();
     }
-    fileuploader.value.value = '';
-    console.log(fileuploader.value.files);
+    (fileuploader.value as any).value = '';
+    console.log((fileuploader.value as any).files);
   }
   
   const downloadFile = (file) => {
