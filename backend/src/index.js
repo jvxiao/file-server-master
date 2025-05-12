@@ -10,10 +10,10 @@ const { getFileList, downloadFile } = require('./services/fileService');
 const app =  express((req, res) => {
   console.log(req.url);
 });
-console.log(path.join(__dirname, '../../web/file-server-web/dist/'));
+console.log(path.join(__dirname, '../../web/dist/'));
 app.use(cors());
 app.use(bodyparser());
-app.use('/', express.static(path.resolve(__dirname, '../../web/file-server-web/dist/')));
+app.use('/', express.static(path.resolve(__dirname, '../../web/dist/')));
 app.use((req, res, next) => {
   console.log(req.url);
   next();
