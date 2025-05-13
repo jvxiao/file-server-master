@@ -6,6 +6,7 @@
         <component :is="nav.icon" />
         <span>{{ nav.name }} </span>
         </div>
+        <img :src="qrcode" alt="QR Code" />
     </div>
     <div class="main-content">
       <router-view ></router-view>
@@ -13,10 +14,11 @@
   </div>
 </template>
 <script lang="ts" setup>
-import  { ref } from 'vue';
+import  { ref, shallowRef } from 'vue';
 import { TrendCharts, Delete, List, DeleteFilled } from '@element-plus/icons-vue'
 import { useComStore } from '@/store';
 import router from '@/router';
+import { useQRCode } from '@vueuse/integrations/useQRCode'
 const comStore = useComStore();
 const size = ref(14)
 const navList = ref([
@@ -36,6 +38,9 @@ const navList = ref([
 ]);
 
 const curNav = ref('/dashboard');
+
+const text = ref('http://192.168.31.190:9000/#/manage')
+const qrcode = useQRCode(text)
 
 const routeTo = (routePath:string) => {
   console.log(routePath)

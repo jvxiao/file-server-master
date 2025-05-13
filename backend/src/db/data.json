@@ -620,6 +620,19 @@
       "size": 826642,
       "fid": "8d4dfc0c-61ef-44dd-808f-cd97e4509b30",
       "uploadTime": 1746850067654
+    },
+    {
+      "id": "993f",
+      "fieldname": "file",
+      "originalname": "IMG_8705.jpeg",
+      "encoding": "7bit",
+      "mimetype": "image/jpeg",
+      "destination": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage",
+      "filename": "1747149417058.IMG_8705.jpeg",
+      "path": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage\\1747149417058.IMG_8705.jpeg",
+      "size": 2430158,
+      "fid": "60be39d0-bff9-4b0f-9acf-4ec52870755f",
+      "uploadTime": 1747149418200
     }
   ]
 }
