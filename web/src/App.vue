@@ -6,7 +6,11 @@
         <component :is="nav.icon" />
         <span>{{ nav.name }} </span>
         </div>
-        <img :src="qrcode" alt="QR Code" />
+        <div class="qrcode">
+          <img :src="qrcode" alt="QR Code" >
+          <span style="display:inline-block;">扫一扫，手机端快速打开</span>
+        </div>
+        
     </div>
     <div class="main-content">
       <router-view ></router-view>
@@ -61,6 +65,7 @@ const routeTo = (routePath:string) => {
   display: flex;
   color: #333;
   .side-bar {
+    position: relative;
     min-width: 200px;
     height: 100%;
     padding-top: 50px;
@@ -87,6 +92,30 @@ const routeTo = (routePath:string) => {
     // width: calc(100% - 20px);
     width: 100%;
     height: 100%;
+  }
+  .qrcode {
+    width: 100%;
+    position: absolute;
+    bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    // border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 0 auto;
+    // background-color: #1e3058;
+    img {
+      border: 1px solid #ccc;
+      width: 120px;
+      border-radius: 8px; 
+    }
+    span {
+      padding-top: 4px;
+      color: #999;
+    }
+
   }
 }
 </style>

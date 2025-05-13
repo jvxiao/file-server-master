@@ -633,6 +633,19 @@
       "size": 2430158,
       "fid": "60be39d0-bff9-4b0f-9acf-4ec52870755f",
       "uploadTime": 1747149418200
+    },
+    {
+      "id": "edb8",
+      "fieldname": "file",
+      "originalname": "20210326194948_639f4.jpeg",
+      "encoding": "7bit",
+      "mimetype": "image/jpeg",
+      "destination": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage",
+      "filename": "1747150488988.20210326194948_639f4.jpeg",
+      "path": "D:\\workspace\\gitwork\\file-server-master\\backend\\storage\\1747150488988.20210326194948_639f4.jpeg",
+      "size": 1721173,
+      "fid": "524ff06f-7565-4372-bdf0-b1442cf2305d",
+      "uploadTime": 1747150489967
     }
   ]
 }
