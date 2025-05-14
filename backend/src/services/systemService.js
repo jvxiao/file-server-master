@@ -4,8 +4,6 @@ const os = require('os');
 
 const getServerHost = () => {
   const interfaces = os.networkInterfaces();
-  console.log(process.env)
-  console.log('networkInterfaces: ',interfaces);
   for (const name of Object.keys(interfaces)) {
     for (const iface of interfaces[name] || []) {
       if (iface.family === 'IPv4' && !iface.internal) {
