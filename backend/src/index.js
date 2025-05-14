@@ -6,6 +6,7 @@ const multer = require('multer');
 const fileupload = require('./utils/fileuploader'); 
 
 const { getFileList, downloadFile } = require('./services/fileService');
+const { getServerHostAndPort } = require('./services/systemService')
 
 const app =  express((req, res) => {
   console.log(req.url);
@@ -27,4 +28,5 @@ app.post('/api/upload', fileupload, (req, res) => {
 });
 app.get('/api/getFileList', getFileList);
 app.get('/api/downloadFile', downloadFile);
-app.listen(8001, '0.0.0.0');
+app.get('/api/gethostandport', getServerHostAndPort)
+app.listen(process.env.PORT, '0.0.0.0');
