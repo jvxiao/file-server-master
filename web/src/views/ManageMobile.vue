@@ -45,7 +45,6 @@ import { reactive, ref } from 'vue';
 import { friendlyMemorySize, friendlyTime} from '@/utils/number';
 import { useFileManageService } from '../services/fileManageService';
 import { imgPreview} from '../services/previewService';
-const BASE_URL = 'http://192.168.31.190:8080';
 
 const dataProps = ref([
   {label: '文件名', value:'originalname'},
@@ -69,7 +68,7 @@ const {
 } = useFileManageService(dataProps, state);
 
 const getFileURL = (file) => {
- return `${BASE_URL}/api/downloadFile?fid=${file.fid}`
+ return `/api/downloadFile?fid=${file.fid}`
 }
 </script>
 <style lang="scss" scoped>

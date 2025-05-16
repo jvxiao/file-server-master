@@ -1,8 +1,6 @@
 import { onMounted, ref, computed, watch } from 'vue';
 import { FILE_ICONS, FILE_TYPES, getApplicationType } from './fileTypeConst';
 import axios from 'axios';
-const BASE_URL = 'http://192.168.31.190:8080';
-// const BASE_URL = 'http://localhost:8001';
 const fileuploader = ref(HTMLInputElement);
 
 const dataList = ref([]);
@@ -58,7 +56,7 @@ export const useFileManageService = (props, state) => {
     let headers = {
       'Content-Type': 'multipart/form-data'
     }
-    const res = await axios.post(`${BASE_URL}/api/upload`, formData, {headers: headers});
+    const res = await axios.post(`/api/upload`, formData, {headers: headers});
     alert(JSON.stringify(res.data))
     if(res.data.code === 0) {
       fetchFileList();
@@ -69,7 +67,7 @@ export const useFileManageService = (props, state) => {
   
   const downloadFile = (file) => {
     const link = document.createElement('a');
-    link.href = `${BASE_URL}/api/downloadFile?fid=${file.fid}`;
+    link.href = `/api/downloadFile?fid=${file.fid}`;
     link.download = file.originalname;
     document.body.appendChild(link);
     link.click();
