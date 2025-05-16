@@ -11,8 +11,8 @@
             <span class="name">DOWNLOAD</span>
             <span class="count">6677</span>
           </div>
-          <div class="card"></div>
-          <div class="card"></div>
+          <div class="card">最近上传文件</div>
+          <div class="card">最近下载文件</div>
         </div>
     </div>
     <div class="file-list"></div>
