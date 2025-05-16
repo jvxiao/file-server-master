@@ -1,7 +1,7 @@
 import { onMounted, ref, computed, watch } from 'vue';
 import { FILE_ICONS, FILE_TYPES, getApplicationType } from './fileTypeConst';
 import axios from 'axios';
-const BASE_URL = 'http://192.168.31.190:8001';
+const BASE_URL = 'http://192.168.31.190:8080';
 // const BASE_URL = 'http://localhost:8001';
 const fileuploader = ref(HTMLInputElement);
 
@@ -29,7 +29,7 @@ export const useFileManageService = (props, state) => {
   })
   
   const fetchFileList = async () => {
-    const res = await axios.get(`${BASE_URL}/api/getFileList`);
+    const res = await axios.get(`/api/getFileList`);
     if(res.data && res.data.length) {
       dataList.value = res.data.sort(sortFn);
       backup.value = JSON.parse(JSON.stringify(dataList.value));

@@ -45,7 +45,7 @@ import { reactive, ref } from 'vue';
 import { friendlyMemorySize, friendlyTime} from '@/utils/number';
 import { useFileManageService } from '../services/fileManageService';
 import { imgPreview} from '../services/previewService';
-const BASE_URL = 'http://192.168.31.190:8001';
+const BASE_URL = 'http://192.168.31.190:8080';
 
 const dataProps = ref([
   {label: '文件名', value:'originalname'},

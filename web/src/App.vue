@@ -18,11 +18,12 @@
   </div>
 </template>
 <script lang="ts" setup>
-import  { ref, shallowRef } from 'vue';
+import  { onMounted, ref, shallowRef } from 'vue';
 import { TrendCharts, Delete, List, DeleteFilled } from '@element-plus/icons-vue'
 import { useComStore } from '@/store';
 import router from '@/router';
 import { useQRCode } from '@vueuse/integrations/useQRCode'
+import axios from 'axios';
 const comStore = useComStore();
 const size = ref(14)
 const navList = ref([
@@ -43,8 +44,8 @@ const navList = ref([
 
 const curNav = ref('/dashboard');
 
-const text = ref('http://192.168.31.190:9000/#/manage')
-const qrcode = useQRCode(text)
+const text = ref('http://192.168.31.190:9000//#/manage')
+let qrcode = useQRCode(text)
 
 const routeTo = (routePath:string) => {
   console.log(routePath)
@@ -54,6 +55,12 @@ const routeTo = (routePath:string) => {
   }) 
 }
 
+onMounted(async () => {
+  const res = await axios.get('/api/gethostandport');
+  const { ip, port } = res.data.data;
+  text.value = `http://${ip}:${port}/#/manage`;
+  qrcode = useQRCode(text)
+})
 
 </script>
 <style lang="scss" scoped>

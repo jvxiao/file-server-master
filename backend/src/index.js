@@ -30,3 +30,4 @@ app.get('/api/getFileList', getFileList);
 app.get('/api/downloadFile', downloadFile);
 app.get('/api/gethostandport', getServerHostAndPort)
 app.listen(process.env.PORT, '0.0.0.0');
+console.log(`app is listening http://localhost:${process.env.PORT}`)
