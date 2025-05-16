@@ -103,22 +103,25 @@ onMounted(async () => {
   .qrcode {
     width: 100%;
     position: absolute;
-    bottom: 18px;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3px;
+    padding: 10px ;
+    // border-radius: 0% 50% 50% 0;
+    background: $theme-color;
     // border: 1px solid #ccc;
-    border-radius: 6px;
+    // border-radius: 6px;
     margin: 0 auto;
     // background-color: #1e3058;
     img {
       border: 1px solid #ccc;
-      width: 120px;
+      width: 85px;
       border-radius: 8px; 
     }
     span {
+      font-size: 12px;
       padding-top: 4px;
       color: #999;
     }
